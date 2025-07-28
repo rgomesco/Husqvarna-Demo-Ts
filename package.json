@@ -1,0 +1,21 @@
+{
+  "name": "husqvarna_demo",
+  "version": "1.0.0",
+  "description": "Demo project for Husqvarna interview",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcafe"
+  },
+  "keywords": [
+    "Testcafe",
+    "Testing",
+    "Automation"
+  ],
+  "author": "Rodolfo Gomes Coutinho",
+  "license": "ISC",
+  "dependencies": {
+    "@types/minimatch": "^6.0.0",
+    "testcafe": "^3.7.2",
+    "testcafe-reporter-html": "^1.4.6"
+  }
+}

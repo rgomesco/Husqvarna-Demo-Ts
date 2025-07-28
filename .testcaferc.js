@@ -1,0 +1,25 @@
+module.exports = {
+    browsers: "chrome:headless",
+    src: "./tests",
+    skipJsErrors: true,
+    concurrency: 2,
+    disableNativeAutomation: true,
+    reporter: [
+        {
+            name: "html",
+            output: "./reports/test-report.html"
+        }
+    ],
+    screenshots: {
+        takeOnFails: true,
+        path: "./reports/screenshots",
+        pathPattern: "${DATE}_${TIME}/{USERAGENT}/${TEST}/${FILE_INDEX}.png"
+    },
+    hooks: {
+        test: {
+            before: async (t) => {
+                await t.maximizeWindow();
+            }
+        }
+    }
+};
