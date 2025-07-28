@@ -1,4 +1,4 @@
-# Husqvarna Demo JS
+# Husqvarna Demo TS
 
 This project is an automated UI testing suite for a Husqvarna e-commerce site. It uses the Page Object Model (POM) pattern to organize test code and TestCafe as the test runner.
 
