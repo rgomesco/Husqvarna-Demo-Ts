@@ -26,7 +26,8 @@ const cartData = new CartData();
 fixture("Add to cart tests")
     .page(homePageData.homePageUrl);
 
-test("Adding product to cart and checkout", async t => {
+test.meta({ smoke: "true", regression: "true" })
+    ("Adding product to cart and checkout", async t => {
     await helper.searchAndAddProductToCart(productDetailsData.product1);
     await t.expect(checkoutPage.pageTitle.innerText).contains(cartData.cartPageTitle, "Cart page title does not match");
     await t.expect(checkoutPage.checkoutListItemName.innerText).contains(productDetailsData.product1.checkoutName, "Product name in cart does not match with the added product");
@@ -38,7 +39,8 @@ test("Adding product to cart and checkout", async t => {
     await t.expect(homePage.pageTitle.innerText).contains(homePageData.homePageTitle, "Home page title does not match");
 });
 
-test("Exploring products , applying filter , adding products to cart", async t => {
+test.meta({ regression: "true" })
+    ("Exploring products , applying filter , adding products to cart", async t => {
     await t.scrollIntoView(homePage.exploreProductsSectionHeader);
     await t.click(homePage.exploreProductsSectionExpandBtn);
     await homePage.selectExploreProductCard(productCategoryData.productCategory);
@@ -64,7 +66,8 @@ test("Exploring products , applying filter , adding products to cart", async t =
     await t.expect(homePage.pageTitle.innerText).contains(homePageData.homePageTitle, "Home page title does not match");
 });
 
-test("Deleting item from cart", async t => {
+test.meta({ regression: "true" })
+    ("Deleting item from cart", async t => {
     await helper.searchAndAddProductToCart(productDetailsData.product1);
     await t.expect(checkoutPage.pageTitle.innerText).contains(cartData.cartPageTitle, "Cart page title does not match");
     await t.expect(checkoutPage.checkoutListItemName.innerText).contains(productDetailsData.product1.checkoutName, "Product name in cart does not match with the added product");

@@ -4,8 +4,10 @@
   "description": "Demo project for Husqvarna interview",
   "main": "index.js",
   "scripts": {
+    "allure-report": "allure generate ./reports/allure/allure-results --clean -o ./reports/allure/allure-report && allure open ./reports/allure/allure-report",
     "tests": "testcafe ; npm run allure-report",
-    "allure-report": "allure generate ./reports/allure/allure-results --clean -o ./reports/allure/allure-report && allure open ./reports/allure/allure-report"
+    "smoke-tests": "testcafe --test-meta smoke=true ; npm run allure-report",
+    "regression-tests": "testcafe --test-meta regression=true ; npm run allure-report"
   },
   "keywords": [
     "Testcafe",

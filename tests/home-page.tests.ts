@@ -13,7 +13,8 @@ const navBarData = new NavBarData();
 fixture("Home page tests")
     .page(homePageData.homePageUrl);
 
-test("Home page verification", async t => {
+test.meta({ smoke: "true" })
+    ("Home page verification", async t => {
     await t.expect(homePage.pageTitle.innerText).contains(homePageData.homePageTitle, "Home page title does not match");
     await t.expect(await navBar.verifyMenuOptions(navBar.menuOptions, navBarData.menuOptions)).ok("Menu options verification failed");
     await t.hover(navBar.menuOptionsProducts);
