@@ -14,6 +14,7 @@ interface ProductData {
     price: string;
     category: string;
     checkoutName: string;
+    description: string;
 }
 
 class Helper {
@@ -35,6 +36,9 @@ class Helper {
         await t.expect(productDetailsPage.productTitle.innerText).contains(productData.name, "Product title does not match with selected product");
         await t.expect(productDetailsPage.productPrice.innerText).contains(productData.price, "Product price does not match with selected product");
         await t.expect(productDetailsPage.productCategory.innerText).contains(productData.category, "Product category does not match with selected product");
+        await t.expect(productDetailsPage.findAStoreButton.visible).ok("Find a store button is not visible");
+        await t.expect(productDetailsPage.productDescriptionHeader.innerText).contains(productData.description, "Product description does not match with selected product");
+        await t.expect(productDetailsPage.breadcrumbs.innerText).contains(productData.checkoutName, "Product category does not match with selected product");
         await t.click(productDetailsPage.addToCartButton);
         await t.expect(addedToCartSideDrawer.addedToCartSideDrawer.visible).ok("Add to cart sidebar did not appear");
         await t.expect(addedToCartSideDrawer.productAddedToCartMessage.innerText)

@@ -5,6 +5,7 @@ class ProductDetailsData {
         checkoutName: string;
         price: string;
         category: string;
+        description: string;
     };
     constructor() {
         this.product1 = {
@@ -12,7 +13,8 @@ class ProductDetailsData {
             name: "Husqvarna 120 Mark II",
             checkoutName: "120 Mark II",
             price: "£",
-            category: "Petrol Chainsaws"
+            category: "Petrol Chainsaws",
+            description: "All-round chainsaw for effortless cutting and felling"
         };
     }
 }
