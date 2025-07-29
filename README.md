@@ -34,6 +34,7 @@ npm run tests
 
 ### Test Reports
 
+- Allure reports are generated in the `reports/allure` directory.
 - HTML reports are generated in the `reports/` directory.
 - Screenshots of failed tests are saved in `reports/screenshots/`.
 
