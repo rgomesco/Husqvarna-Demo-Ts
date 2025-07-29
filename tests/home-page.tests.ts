@@ -11,7 +11,7 @@ const homePageData = new HomePageData();
 const navBarData = new NavBarData();
 
 fixture("Home page tests")
-    .page(homePageData.homePageUrl);
+    .page("./");
 
 test.meta({ smoke: "true" })
     ("Home page verification", async t => {

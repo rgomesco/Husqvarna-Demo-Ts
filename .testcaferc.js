@@ -1,6 +1,7 @@
 module.exports = {
     browsers: ["chrome:headless"],
     src: "./tests",
+    baseUrl: "https://www.husqvarna.com/uk",
     skipJsErrors: true,
     concurrency: 2,
     disableNativeAutomation: true,

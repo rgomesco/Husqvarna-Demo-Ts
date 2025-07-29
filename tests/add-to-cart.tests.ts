@@ -9,7 +9,6 @@ import HomePageData from "../testData/HomePageData";
 import ProductDetailsData from "../testData/ProductDetailsData";
 import ProductCategoryData from "../testData/ProductCategoryData";
 import CartData from "../testData/CartPageData";
-import { Selector, t } from "testcafe";
 
 const homePage = new HomePage();
 const navBar = new NavBar();
@@ -24,7 +23,7 @@ const productCategoryData = new ProductCategoryData();
 const cartData = new CartData();
 
 fixture("Add to cart tests")
-    .page(homePageData.homePageUrl);
+    .page("./");
 
 test.meta({ smoke: "true", regression: "true" })
     ("Adding product to cart and checkout", async t => {
