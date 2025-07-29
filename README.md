@@ -28,8 +28,22 @@ npm install
 
 ### Run Tests
 
+- Run all tests
+
 ```bash
 npm run tests
+```
+
+- Run smole tests
+
+```bash
+npm run smoke-tests
+```
+
+- Run regression tests
+
+```bash
+npm run regression-tests
 ```
 
 ### Test Reports
