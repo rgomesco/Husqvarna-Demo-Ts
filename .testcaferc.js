@@ -1,5 +1,5 @@
 module.exports = {
-    browsers: "chrome:headless",
+    browsers: ["chrome:headless"],
     src: "./tests",
     skipJsErrors: true,
     concurrency: 2,
@@ -8,6 +8,9 @@ module.exports = {
         {
             name: "html",
             output: "./reports/test-report.html"
+        },
+        {
+            name: "allure"
         }
     ],
     screenshots: {
