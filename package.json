@@ -15,6 +15,7 @@
   "author": "Rodolfo Gomes Coutinho",
   "license": "ISC",
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
     "@types/minimatch": "^6.0.0",
     "allure-commandline": "^2.34.1",
     "testcafe": "^3.7.2",
