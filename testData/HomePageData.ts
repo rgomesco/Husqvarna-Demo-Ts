@@ -1,7 +1,7 @@
 class HomePageData {
     homePageTitle: string;
     constructor() {
-        this.homePageTitle = "Husqvarna Forest & Garden";
+        this.homePageTitle = "Husqvarna UK | Chainsaws, Lawn Mowers & Garden Tools";
     }
 }
 

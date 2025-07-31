@@ -26,6 +26,12 @@ class NavBar {
         this.cartIconCount = Selector("[class='ui-ed ui-d- ui-io ui-ip ui-j4 ui-j2 fRFm0OI5Lt2m9Zhak8mAwA== ui-1 ui-2'] [class='ui-a2 ui-ps ui-bh']");
     }
 
+    /**
+     * Verifies that the given menu element contains the expected menu options.
+     * @param {Selector} element - The Selector for the menu options
+     * @param {string[]} expectedMenuOptions - Array of expected menu option texts
+     * @returns {Promise<boolean>} - True if all expected options are present, false otherwise
+     */
     async verifyMenuOptions(element: Selector, expectedMenuOptions: string[]): Promise<boolean> {
         let menuCount = await element.count;
         if (menuCount !== expectedMenuOptions.length) {

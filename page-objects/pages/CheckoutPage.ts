@@ -23,11 +23,20 @@ class CheckoutPage {
         this.continueToDeliveryBtn = Selector(".container.checkout-continue div");
     }
 
+    /**
+     * Deletes a product from the cart by product name.
+     * @param {string} productName - The name of the product to delete
+     */
     async deleteProductFromCart(productName: string): Promise<void> {
         const productToDelete = this.deleteProductBtn.withAttribute("data-name", productName);
         await t.click(productToDelete);
     }
 
+    /**
+     * Gets the quantity of a product in the cart by product name.
+     * @param {string} productName - The name of the product
+     * @returns {Promise<string>} - The quantity value as a string
+     */
     async getProductQuantity(productName: string): Promise<number> {
         const product = this.checkoutListItemQuantity.withAttribute("data-name", productName);
         const value = await product.value;

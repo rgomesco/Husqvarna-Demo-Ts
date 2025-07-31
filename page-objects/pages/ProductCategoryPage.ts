@@ -31,16 +31,45 @@ class ProductCategoryPage {
         this.productFirstCardWithAddToCartBtnPrice = this.productFirstCardWithAddToCartBtn.parent("[class='hui-box hui-flexbox--container hui-size--sm-w-full hbd-card__frame']").find("[data-ui-component='ProductPrice'] span");
     }
 
+    /**
+     * Sets the price range slider values for min and max.
+     * Directly manipulates the DOM elements and dispatches change events.
+     * @param {number|string} minValue - The minimum value to set
+     * @param {number|string} maxValue - The maximum value to set
+     */
     async setSliderValue(minValue: string, maxValue: string): Promise<void> {
+        await this.setSliderMinValue(minValue);
+        await this.setSliderMaxValue(maxValue);
+    }
+
+    /**
+     * Sets the price range slider values for min .
+     * Directly manipulates the DOM elements and dispatches change events.
+     * @param {number|string} minValue - The minimum value to set
+     */
+    async setSliderMinValue(minValue: string): Promise<void> {
         let minElementSelector = this.priceRangeSliderMinSelector;
-        let maxElementSelector = this.priceRangeSliderMaxSelector;
         await t.eval(() => {
             const rangeMinElement = document.getElementById(minElementSelector);
             if (rangeMinElement) {
                 (rangeMinElement as HTMLInputElement).value = minValue;
                 rangeMinElement.dispatchEvent(new Event('change', { bubbles: true }));
             }
+        }, {
+            dependencies: {
+                minValue, minElementSelector
+            }
+        });
+    }
 
+    /**
+     * Sets the price range slider values for max.
+     * Directly manipulates the DOM elements and dispatches change events.
+     * @param {number|string} maxValue - The maximum value to set
+     */
+    async setSliderMaxValue(maxValue: string): Promise<void> {
+        let maxElementSelector = this.priceRangeSliderMaxSelector;
+        await t.eval(() => {
             const rangeMaxElement = document.getElementById(maxElementSelector);
             if (rangeMaxElement) {
                 (rangeMaxElement as HTMLInputElement).value = maxValue;
@@ -48,7 +77,7 @@ class ProductCategoryPage {
             }
         }, {
             dependencies: {
-                minValue, maxValue, minElementSelector, maxElementSelector
+                maxValue, maxElementSelector
             }
         });
     }
