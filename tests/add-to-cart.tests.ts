@@ -48,8 +48,7 @@ test.meta({ regression: "true" })
     await t.expect(productCategoryPage.compareButton.visible).ok("Compare button is not visible");
     await t.expect(productCategoryPage.sortButton.visible).ok("Sort button is not visible");
     await productCategoryPage.setSliderValue("99", "499");
-    await t.expect(productCategoryPage.priceRangeSliderMinLabel.innerText).contains("99", "Price range slider min label does not match with expected value");
-    await t.expect(productCategoryPage.priceRangeSliderMaxLabel.innerText).contains("499", "Price range slider max label does not match with expected value");
+    await productCategoryPage.verifySliderValues(99, 499);
     const productName = await productCategoryPage.productFirstCardWithAddToCartBtnName.innerText;
     const productPrice = (await productCategoryPage.productFirstCardWithAddToCartBtnPrice.innerText).split(" ")[1];
     await t.click(productCategoryPage.productFirstCardWithAddToCartBtn);

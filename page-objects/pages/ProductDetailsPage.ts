@@ -17,7 +17,7 @@ class ProductDetailsPage {
         this.productDetailsSection = Selector("section[data-ui-component='ProductV2Aside']");
         this.productCategory = this.productDetailsSection.find("[class='ui-a2 ui-a-']");
         this.productTitle = this.productDetailsSection.find("h1");
-        this.productPrice = this.productDetailsSection.find("[class='ui-a2 ui-ep ui-a6']");
+        this.productPrice = this.productDetailsSection.find("[class='ui-kq ui-k_ ui-j1']");
         this.addToCartButton = Selector("#add-to-cart-button-1");
         this.findAStoreButton = Selector("[class='ui-n3 ui-n6 ui-id ui-c9 ui-jy ui-j0']");
         this.productDescriptionHeader = Selector("section h2.ui-a2.ui-if.ui-a6");

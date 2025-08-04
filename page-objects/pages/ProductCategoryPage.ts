@@ -5,6 +5,8 @@ class ProductCategoryPage {
     header: Selector;
     priceRangeSliderMinSelector: string;
     priceRangeSliderMaxSelector: string;
+    priceRangeSliderMinInput: Selector;
+    priceRangeSliderMaxInput: Selector;
     priceRangeSliderMinLabel: Selector;
     priceRangeSliderMaxLabel: Selector;
     productCards: Selector;
@@ -22,6 +24,8 @@ class ProductCategoryPage {
         this.sortButton = Selector("#dropdown-button-product-list-toolbar-sortbox");
         this.priceRangeSliderMinSelector = "minRangeInput-from_price_incl_vat_td";
         this.priceRangeSliderMaxSelector = "maxRangeInput-from_price_incl_vat_td";
+        this.priceRangeSliderMinInput = Selector("#minRangeInput-from_price_incl_vat_td");
+        this.priceRangeSliderMaxInput = Selector("#maxRangeInput-from_price_incl_vat_td");
         this.priceRangeSliderMinLabel = Selector("label[for='minRangeInput-from_price_incl_vat_td']");
         this.priceRangeSliderMaxLabel = Selector("label[for='maxRangeInput-from_price_incl_vat_td']");
         this.productCards = Selector("[data-card-type='machine-specification']");
@@ -80,6 +84,22 @@ class ProductCategoryPage {
                 maxValue, maxElementSelector
             }
         });
+    }
+
+    /**
+     * Verifies that the slider's min and max input values are within the expected range.
+     * Checks if the actual values are within one step of the expected min and max values.
+     * @param minValue - The expected minimum value
+     * @param maxValue - The expected maximum value
+     */
+    async verifySliderValues(minValue: number, maxValue: number): Promise<void> {
+        const minLabelValue = parseInt(await this.priceRangeSliderMinInput.getAttribute("value") ?? "0");
+        const maxLabelValue = parseInt(await this.priceRangeSliderMaxInput.getAttribute("value") ?? "0");
+        const sliderStep = parseInt(await this.priceRangeSliderMinInput.getAttribute("step") ?? "1");
+
+        await t
+            .expect(minLabelValue).within(minValue - sliderStep, minValue + sliderStep, "Min label value does not match expected value")
+            .expect(maxLabelValue).within(maxValue - sliderStep, maxValue + sliderStep, "Max label value does not match expected value");
     }
 }
 
